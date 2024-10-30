@@ -71,7 +71,7 @@ class BasicController extends Controller
     {
         return view('');
     }
-
+ 
 
     // business consultancy
     function shopAct(Request $request)

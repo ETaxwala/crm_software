@@ -41,32 +41,32 @@ Route::get('/', [BasicController::class, 'index'])->name('index');
 
 
 // registration services
-Route::get('/Partnership_Firm_Registration', [BasicController::class, 'partnershipFirm'])->name('Partnership Firm Registration');
-Route::get('/One_Person_Company', [BasicController::class, 'onePerson'])->name('One Person Company');
-Route::get('/Private_LTD_Company', [BasicController::class, 'privateLimited'])->name('Private LTD Company');
-Route::get('/Limited_Liability_Partnership_LLP', [BasicController::class, 'LLP'])->name('Limited Liability Partnership (LLP)');
-Route::get('/Section_8_Company_NGO', [BasicController::class, 'section8'])->name('Section 8 Company NGO');
-Route::get('/Producer_Company', [BasicController::class, 'producerCompany'])->name('Producer Company');
-Route::get('/Nidhi_Company_Registration', [BasicController::class, 'nidhiCompany'])->name('Nidhi Company Registration');
-Route::get('/Public_LTD_Company', [BasicController::class, 'publicLimited'])->name('Public LTD Company');
-Route::get('/Microfinance_Company_Section_8', [BasicController::class, 'microfinanceSection8'])->name('Microfinance Company (Section 8)');
-Route::get('/Indian_Subsidiary_Company', [BasicController::class, 'indianSubidiary'])->name('Indian Subsidiary Company');
-Route::get('/Microfinance_Company_NBFC_RBI_Registered', [BasicController::class, 'microfinanceNBFC'])->name('Microfinance Company NBFC (RBI Registered)');
+Route::get('/Partnership-Firm-Registration', [BasicController::class, 'partnershipFirm'])->name('Partnership Firm Registration');
+Route::get('/One-Person-Company', [BasicController::class, 'onePerson'])->name('One Person Company');
+Route::get('/Private-LTD-Company', [BasicController::class, 'privateLimited'])->name('Private LTD Company');
+Route::get('/Limited-Liability-Partnership-LLP', [BasicController::class, 'LLP'])->name('Limited Liability Partnership (LLP)');
+Route::get('/Section-8-Company-NGO', [BasicController::class, 'section8'])->name('Section 8 Company NGO');
+Route::get('/Producer-Company', [BasicController::class, 'producerCompany'])->name('Producer Company');
+Route::get('/Nidhi-Company-Registration', [BasicController::class, 'nidhiCompany'])->name('Nidhi Company Registration');
+Route::get('/Public-LTD-Company', [BasicController::class, 'publicLimited'])->name('Public LTD Company');
+Route::get('/Microfinance-Company-Section-8', [BasicController::class, 'microfinanceSection8'])->name('Microfinance Company (Section 8)');
+Route::get('/Indian-Subsidiary-Company', [BasicController::class, 'indianSubidiary'])->name('Indian Subsidiary Company');
+Route::get('/Microfinance-Company-NBFC-RBI-Registered', [BasicController::class, 'microfinanceNBFC'])->name('Microfinance Company NBFC (RBI Registered)');
 
 // Business Consultancy
-Route::get('/shop_act_registration', [BasicController::class, 'shopAct'])->name('Shop Act Registration');
-Route::get('/msme_registration', [BasicController::class, 'MSME'])->name('MSME Registration');
-Route::get('/gst_registration', [BasicController::class, 'GST'])->name('GST Registration');
-Route::get('/fssai_registration', [BasicController::class, 'FSSAI'])->name('FSSAI Registration');
-Route::get('/import_export_code', [BasicController::class, 'importExportCode'])->name('Import Export Code');
-Route::get('/epfo_esic_registration', [BasicController::class, 'EPFOESIC'])->name('EPFO ESIC Registration');
-Route::get('/80G_12A_registration', [BasicController::class, 'G8012A'])->name('80G 12A Registration');
-Route::get('/professional_tax_registration', [BasicController::class, 'professionalTax'])->name('Professional Tax Registration');
-Route::get('/tan_registration', [BasicController::class, 'TAN'])->name('TAN Registration');
+Route::get('/shop-act-registration', [BasicController::class, 'shopAct'])->name('Shop Act Registration');
+Route::get('/msme-registration', [BasicController::class, 'MSME'])->name('MSME Registration');
+Route::get('/gst-registration', [BasicController::class, 'GST'])->name('GST Registration');
+Route::get('/fssai-registration', [BasicController::class, 'FSSAI'])->name('FSSAI Registration');
+Route::get('/import-export-code', [BasicController::class, 'importExportCode'])->name('Import Export Code');
+Route::get('/epfo-esic-registration', [BasicController::class, 'EPFOESIC'])->name('EPFO ESIC Registration');
+Route::get('/80G-12A-registration', [BasicController::class, 'G8012A'])->name('80G 12A Registration');
+Route::get('/professional-tax-registration', [BasicController::class, 'professionalTax'])->name('Professional Tax Registration');
+Route::get('/tan-registration', [BasicController::class, 'TAN'])->name('TAN Registration');
 Route::get('/DSC', [BasicController::class, 'DSC'])->name('Digital Signature');
-Route::get('/PASARA_license', [BasicController::class, 'PASARA'])->name('PASARA License');
-Route::get('/niti_ayog_darpan', [BasicController::class, 'NitiAyogDarpan'])->name('Niti Ayog Darpan');
-Route::get('/trade_license', [BasicController::class, 'TradeLicense'])->name('Trade License');
+Route::get('/PASARA-license', [BasicController::class, 'PASARA'])->name('PASARA License');
+Route::get('/niti-ayog-darpan', [BasicController::class, 'NitiAyogDarpan'])->name('Niti Ayog Darpan');
+Route::get('/trade-license', [BasicController::class, 'TradeLicense'])->name('Trade License');
 // basic routes end
 
 
@@ -100,7 +100,7 @@ Route::post('/partner-inquiry', [LeadController::class, 'AddPartnerWebinarLead']
 
 Route::get('/appointment', function () {
     return view('appointment');
-});
+})->name('book-appointment');
 Route::post('appointment/booking', [OrderController::class, 'bookAppointment'])->name('book.appointment');
 Route::post('appointment/payment/page', [OrderController::class, 'AppointmentPaymentPage'])->name('pay.appointment');
 Route::post('appointment/payment/Now', [OrderController::class, 'AppointmentPaymentNow'])->name('appointment.pay.now');
@@ -123,11 +123,6 @@ Route::get('/InquiryForm', function () {
     $services = DB::table('services')->get();
     return view('inquiry_form', compact('services'));
 });
-
-
-
-
-
 
 
 
@@ -179,7 +174,6 @@ Route::group(['middleware' => ['AdminLogin', 'log.user.activity']], function () 
 
     Route::get('/admin-manage-partners', [Admin::class, 'ManagePartners'])->name('admin-manage-partners');
     Route::post('/create-partner-form-link', [Admin::class, 'CreateFormLink'])->name('create-partner-form-link');
-    Route::get('/manage-resumes', [HiringController::class, 'ManageResume'])->name('manage-resumes');
     Route::get('/user-activity', [Admin::class, 'UserActivity'])->name('user-activity');
     Route::get('/user-activity-overall', [Admin::class, 'UserActivityOverall'])->name('user-activity-overall');
     Route::get('/sales-manager-followup-lead-filter', [LeadController::class, 'TodaysFollowupLeadFilter'])->name('sales-manager-followup-lead-filter');
@@ -191,6 +185,8 @@ Route::group(['middleware' => ['AdminLogin', 'log.user.activity']], function () 
 
     Route::get('/get-all-appointment', [Admin::class, 'GetAllAppointment'])->name('get-all-appointment');
     Route::get('/Get-Appointment-Details', [Admin::class, 'GetAppointmentDetails'])->name('Get-Appointment-Details');
+    Route::get('/manage-resumes', [HiringController::class, 'ManageResume'])->name('manage-resumes');
+    Route::post('/add-new-blog', [HiringController::class, 'addBlog'])->name('add-new-blog');
 
     // managers routes
 
@@ -216,6 +212,8 @@ Route::group(['middleware' => ['AdminLogin', 'log.user.activity']], function () 
 
 
     // sales leads routes
+    Route::post('/upload-bulk-leads', [LeadController::class, 'UploadBulkLeads'])->name('upload-bulk-leads');
+
     Route::get('/sales-manage-leads', [LeadController::class, 'ManageLeads'])->name('sales-manage-leads');
     Route::post('/add-sales-lead', [LeadController::class, 'AddSalesLead'])->name('add-sales-lead');
     Route::get('/Get-Sales-Lead-Details', [LeadController::class, 'SalesLeadDetail'])->name('Get-Sales-Lead-Details');
@@ -315,10 +313,10 @@ Route::group(['prefix' => 'operation/assistant'], function () {
         Route::get('/operation-manage-all-tasks', [OperationAssistant::class, 'GetAllTasks'])->name('operation-manage-all-tasks');
         Route::get('/Get-Customer-Tasks-Details', [OperationAssistant::class, 'GetCustomerTaskDetails'])->name('Get-Customer-Tasks-Details');
         Route::get('/operation-manage-filter-tasks', [OperationAssistant::class, 'GetTasksFilter'])->name('operation-manage-filter-tasks');
-        Route::post('/generate-new-coupon', [OperationAssistant::class, 'GenerateCoupon'])->name('generate-new-coupon');
-        Route::get('/get-all-coupons2', [OperationAssistant::class, 'GetAllCoupons'])->name('get-all-coupons2');
-        Route::get('/apply-coupon-code', [OperationAssistant::class, 'ApplyCouponCode'])->name('apply-coupon-code');
-        Route::get('/check-coupon-code', [OperationAssistant::class, 'checkCoupon'])->name('check-coupon-code');
+        Route::post('/generate-new-coupon2', [OperationAssistant::class, 'GenerateCoupon'])->name('generate-new-coupon2');
+        // Route::get('/get-all-coupons2', [OperationAssistant::class, 'GetAllCoupons'])->name('get-all-coupons2');
+        // Route::get('/apply-coupon-code', [OperationAssistant::class, 'ApplyCouponCode'])->name('apply-coupon-code');
+        // Route::get('/check-coupon-code', [OperationAssistant::class, 'checkCoupon'])->name('check-coupon-code');
         Route::post('/om-update-emi', [OperationAssistant::class, 'OMUpdateEMI'])->name('om-update-emi');
         Route::get('/oa-customer-details-list', [Admin::class, 'OACustomerList'])->name('oa-customer-details-list');
     });

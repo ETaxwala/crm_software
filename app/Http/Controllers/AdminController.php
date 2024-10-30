@@ -33,7 +33,7 @@ class AdminController extends Controller
                             'is_online' => 1,
                         ]);
 
-                        
+
 
                     Session::put('token', $user->user_token);
                     Session::put('user_name', $user->username);
@@ -81,13 +81,13 @@ class AdminController extends Controller
                             break;
                     }
                 } else {
-                    return redirect('/')->with('error', 'Your Account Is Deactive contact your Admin');
+                    return redirect('/user_login')->with('error', 'Your Account Is Deactive contact your Admin');
                 }
             } else {
-                return redirect('/')->with('error', 'Wrong Password');
+                return redirect('/user_login')->with('error', 'Wrong Password');
             }
         } else {
-            return redirect('/')->with('error', 'Email not exist');
+            return redirect('/user_login')->with('error', 'Email not exist');
         }
     }
 
@@ -105,6 +105,6 @@ class AdminController extends Controller
 
         Session::flush();
         Session::regenerate();
-        return redirect('/');
+        return redirect('/user_login');
     }
 }

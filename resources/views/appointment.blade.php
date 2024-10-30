@@ -96,7 +96,7 @@
                         <center>
                             <h1>
                                 <img class="" height="100" width="200"
-                                    src="https://system.etaxwala.com/public/assets/img/logo_black.png" alt="people">
+                                    src="{{ url(env('LINK') . 'img/logo_black.png') }}" alt="ETaxwala">
                             </h1>
                         </center>
                         <h1 class="h5 text-capitalize my-2">Book An Appointment</h1>
@@ -138,7 +138,7 @@
                     <center>
                         <h1>
                             <img class="" height="50" width="200"
-                                src="https://system.etaxwala.com/public/assets/img/logo_white.png" alt="people">
+                                src="{{ url(env('LINK') . 'img/logo_white.png') }}" alt="people">
                         </h1>
                     </center>
                     <br>

@@ -157,7 +157,7 @@
                         </div>
 
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-primary" id="addNewLead">Add</button>
 
                         <br>
                     </div>
@@ -321,6 +321,11 @@
                                                     name="followup_date" id="followup_date" placeholder="date">
                                             </div>
                                             <div class="col-12">
+                                                <label for="" class="visually-hidden">Followup Time</label>
+                                                <input value="" type="time" class="form-control"
+                                                    name="followup_time" id="followup_time" placeholder="date">
+                                            </div>
+                                            <div class="col-12">
                                                 <label for="" class="visually-hidden">Followup Remark</label>
                                                 <textarea class="form-control" name="followup_remark" id="followup_remark" cols="30" rows="3"></textarea>
                                             </div>
@@ -342,8 +347,9 @@
                                 <div class="container">
 
                                     <div class="row g-3">
-                                        <form id="addLeadOtherServices" class="row g-3" action="{{ route('add-lead-followup') }}"
-                                            method="POST" enctype="multipart/form-data">
+                                        <form id="addLeadOtherServices" class="row g-3"
+                                            action="{{ route('add-lead-followup') }}" method="POST"
+                                            enctype="multipart/form-data">
                                             @csrf
                                             <div class="col-9">
                                                 <input type="hidden" id="lead_id4" name="lead_id4" value="">
@@ -404,6 +410,8 @@
     </div>
 </div>
 
+
+
 {{-- todays followup calls --}}
 <div class="modal fade" id="FollowupCalls" data-bs-keyboard="false" tabindex="-1" role="dialog"
     aria-labelledby="FollowupCallsLabel" aria-hidden="true">
@@ -438,7 +446,8 @@
                 </center>
             </div>
             <div class="modal-body">
-                <form id="addOfflineCustomer" action="{{ route('se-add-offline-customer') }}" method="POST" enctype="multipart/form-data">
+                <form id="addOfflineCustomer" action="{{ route('se-add-offline-customer') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" id="customer_lead_id" name="customer_lead_id">
 
@@ -1052,8 +1061,12 @@
 
     // add data
     $(document).ready(function() {
+        const submitButton = document.getElementById('addNewLead');
+
         $('#addNewEmployee').on('submit', function(e) {
             e.preventDefault();
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Loading...';
 
             $.ajax({
                 type: 'POST',
@@ -1069,8 +1082,14 @@
                     document.getElementById('addNewEmployee').reset();
                     // Show a success toast
                     toastr.success('Lead Added!!!');
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit';
+
                 },
                 error: function(error) {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit';
+
                     // Handle the error response, if needed
                 }
             });

@@ -154,8 +154,8 @@ class OMController extends Controller
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
                     </svg>
                 </span>
-                
-                
+
+
                 ';
                 })
                 ->addColumn('mark2', function ($data) {
@@ -166,7 +166,7 @@ class OMController extends Controller
 
                 ->rawColumns(['action', 'mark2'])
                 ->make(true);
-                
+
                 // <span>
                 //     <svg style="cursor:pointer" onclick="DeleteCustomer(' . $data->customer_id . ',' . $data->service_id . ')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                 //     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
@@ -177,7 +177,7 @@ class OMController extends Controller
         $oemployees = DB::select("SELECT * FROM users WHERE user_type = 7 ORDER BY id DESC");
 
         $categories = DB::select("SELECT * FROM categories");
-        
+
 
         return view('OM.customers', compact('oemployees', 'categories'));
     }
@@ -727,7 +727,7 @@ class OMController extends Controller
 
             ->rawColumns(['action', 'mark2'])
             ->make(true);
-            
+
             // <span>
             //         <svg style="cursor:pointer" onclick="DeleteCustomer(' . $data->customer_id . ',' . $data->service_id . ')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
             //         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
@@ -740,7 +740,7 @@ class OMController extends Controller
 
     function showtasks(Request $request)
     {
-        
+
          $data = DB::table('operation_tasks as ot')
             ->select('ot.task_id', 'ot.task_name', 'u.username', 'ta.assign_date', 'ta.due_date', 'c.name', 'ta.actual_task_status','s.service_name', 'c.id as cust_id', 's.service_id')
             ->leftJoin('customers as c', 'c.id', '=', 'ot.cust_id')
@@ -751,7 +751,7 @@ class OMController extends Controller
             ->get();
 
         // dd($data);
-        
+
         $oemployees = DB::select("SELECT * FROM users WHERE user_type = 7 ORDER BY id DESC");
         $customers = DB::table('customers')->get();
         return view("OM.manage_tasks", compact('oemployees', 'customers'));
@@ -783,7 +783,7 @@ class OMController extends Controller
                     </svg>
                 </span>';
             })
-           
+
            ->addColumn('mark', function ($data) {
 
                 return '<span style="cursor:pointer" onclick="ClientInfo('  . $data->cust_id . ',' . $data->task_id . ',' . $data->service_id .  ')">' . $data->task_name . '</span>';
@@ -826,15 +826,15 @@ class OMController extends Controller
         if ($employee_id != 0) {
             $query->where('u.id', $employee_id);
         }
-        
-        
+
+
         if ($task_status != 0 && $task_status != 123) {
             $query->where('ot.original_task_status', $task_status);
         }else if($task_status == 123) {
             $query->where('ot.is_assign',0);
         }
-        
-        
+
+
         if ($employee_id != 0 && $customer_id != 0 && $task_status != 0) {
             $query->where('c.id', $customer_id)->where('u.id', $employee_id)->where('ot.original_task_status', $task_status);
         }
@@ -856,7 +856,7 @@ class OMController extends Controller
                     </svg>
                 </span>';
             })
-            
+
             ->addColumn('mark', function ($data) {
 
                 return '<span style="cursor:pointer" onclick="ClientInfo('  . $data->cust_id . ',' . $data->task_id . ',' . $data->service_id .  ')">' . $data->task_name . '</span>';
@@ -886,6 +886,7 @@ class OMController extends Controller
             'coupon_remaining' => $uses,
         ]);
 
+        // dd($coupon);
         if ($coupon != 0) {
             return redirect()->back();
         } else {
@@ -960,7 +961,7 @@ class OMController extends Controller
 
             $HLogo->move($destinationPath, $payment_screenshot);
         }
- 
+
 
         DB::table('customer_dues')->insertGetId([
             'emi_id' => $emi_no,
@@ -970,7 +971,7 @@ class OMController extends Controller
             'payment_screenshot' => $payment_screenshot,
             'added_by' => $added_by,
         ]);
-        
+
         DB::table('customer_emi')->where('emi_id', $emi_no)
             ->update([
                 'emi_paid_amount' => $paid_amount,
@@ -987,7 +988,7 @@ class OMController extends Controller
 
         return redirect()->back();
     }
-    
+
     // to delete particular task
     function deleteTask(Request $request)
     {
@@ -1012,7 +1013,7 @@ class OMController extends Controller
 
         return response()->json(['success' => true], 200);
     }
-    
+
     // to delete particular customer
     function deleteCustomer(Request $request)
     {

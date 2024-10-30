@@ -481,7 +481,7 @@
                 <form action="{{ route('customer-login') }}" method="POST" class="sign-in-form">
                     @csrf
                     <h2 class="title"><img class="ms-user-img  ms-lock-screen-user"
-                            src="{{ url('/public/assets/img/logo_black.png') }}" height="100" width="200" alt="people">
+                            src="{{ url(env('LINK') . 'img/logo_black.png') }}" height="100" width="300" alt="ETaxwala">
                     </h2>
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
@@ -520,7 +520,7 @@
                 <form action="{{ route('customer-signup') }}" method="post" class="sign-up-form">
                     @csrf
                     <h2 class="title"><img class="ms-user-img  ms-lock-screen-user"
-                            src="{{ url('/public/assets/img/logo_black.png') }}" height="100" width="200" alt="people">
+                        src="{{ url(env('LINK') . 'img/logo_black.png') }}" height="70" width="300" alt="ETaxwala">
                     </h2>
                     <h2 class="title">Sign up</h2>
                     <div class="input-field">

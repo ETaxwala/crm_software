@@ -243,7 +243,7 @@
         border: 0;
         border-radius: 10px;
         transition: .5s;
-        opacity: 0; 
+        opacity: 0;
     }
 }
 
@@ -905,3 +905,21 @@
     background: var(--bs-secondary) !important;
 }
 /*** copyright end ***/
+
+.btn-black {
+    background-color: black;
+    color: white !important;
+}
+
+.chatbot-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    z-index: 99;
+}

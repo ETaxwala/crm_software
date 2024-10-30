@@ -88,7 +88,7 @@ class LeadController extends Controller
         $lead_id = $request->lead_id;
         // $data = DB::table('leads')->where('id', $lead_id)->get();
         // $data = DB::select("SELECT * FROM leads LEFT JOIN services ON leads.service = services.service_id WHERE leads.id = '$lead_id'");
-        
+
         // $lastfollowupremark = DB::table('lead_followups')->where('lead_id', $lead_id)->get();
         // $lastleadremark = DB::table('lead_remarks')->where('lead_id', $lead_id)->get();
 
@@ -99,7 +99,7 @@ class LeadController extends Controller
         ];
         return response()->json(['data' => $data]);
     }
-    
+
     public function SalesOthersLead(Request $request)
     {
         $lead_id = $request->lead_id;
@@ -171,7 +171,7 @@ class LeadController extends Controller
         $check = DB::table('leads')->where('is_assign', 1)->whereIn('id', $leadIDs)->exists();
 
         if ($check) {
-            
+
         DB::table('lead_assign')->whereIn('lead_id', $leadIDs)->update(['assign_to' => $userID]);
 
 
@@ -241,7 +241,7 @@ class LeadController extends Controller
             $data = DB::select("SELECT l.*, u.username as added_by, services.service_name as SName FROM leads as l
             LEFT JOIN users as u ON l.added_by = u.id
             LEFT JOIN services ON l.service = services.service_id
-            WHERE l.is_assign = '$lead_status' and l.company_id = '$company_id'  
+            WHERE l.is_assign = '$lead_status' and l.company_id = '$company_id'
             AND l.added_by != 41 AND l.added_by != 63 AND l.added_by != 64 AND l.added_by != 65 AND l.added_by != 70
             ORDER BY l.id DESC");
 
@@ -278,7 +278,7 @@ class LeadController extends Controller
      public function SalesLeadWithDetails(Request $request)
     {
         $company_id = Session::get('company_id');
-  
+
 
         if ($request->ajax()) {
             $data = DB::select(
@@ -289,12 +289,12 @@ class LeadController extends Controller
                     u.username as assign_to,
                     us.username as added_by,
                     services.service_name as SName,
-    
+
                     (
                     SELECT lf.followup_date FROM lead_followups as lf
                     WHERE lf.lead_id = l.id ORDER BY lf.id DESC LIMIT 1
                 ) as latest_followup_date
-                
+
                 FROM
                     leads as l
                 LEFT JOIN
@@ -312,8 +312,8 @@ class LeadController extends Controller
                     la.id DESC",
                 [$company_id]
             );
-            
-            
+
+
             // $data = DB::select('CALL GetLeadsWithDetails(?)', [$company_id]);
 
             return Datatables::of($data)
@@ -534,7 +534,7 @@ class LeadController extends Controller
     {
         $company_id = Session::get('company_id');
         $date = Date('Y-m-d');
-        $followupcalls = DB::select("SELECT * FROM lead_followups LEFT JOIN leads ON lead_followups.lead_id = leads.id 
+        $followupcalls = DB::select("SELECT * FROM lead_followups LEFT JOIN leads ON lead_followups.lead_id = leads.id
         WHERE lead_followups.followup_date = '$date' AND leads.company_id = '$company_id' ORDER BY lead_followups.id DESC");
         return response()->json(['data' => $followupcalls]);
     }
@@ -722,7 +722,7 @@ class LeadController extends Controller
             return response(['success' => false, 'msg' => "Something went wrong2: " . $e->getMessage()]);
         }
     }
-    
+
     // inquiry
     function AddInquiryLead(Request $request)
     {
@@ -796,7 +796,7 @@ class LeadController extends Controller
             'message' => $msg,
         ]);
     }
-    
+
     function AddPartnerWebinarLead(Request $request)
     {
          // dd($request);
@@ -828,8 +828,8 @@ class LeadController extends Controller
             'message' => $link,
         ]);
     }
-    
-    
+
+
     function TodaysFollowupLeadFilter()
     {
         $tDate = Date('Y-m-d');
@@ -899,15 +899,15 @@ class LeadController extends Controller
                 }
             })
 
-        
+
         ->addColumn('checkmark', function ($data) {
                 return '<input type="checkbox" class="checkbox" name="" value="' . $data->id . '"/>';
             })
             ->rawColumns(['checkmark','mark', 'mark2', 'mark3', 'mark4', 'lfd'])
             ->make(true);
     }
-    
-    
+
+
     public function AddOtherLeads(Request $request)
     {
         // dd($request);
@@ -916,10 +916,22 @@ class LeadController extends Controller
              'service_id' => $request->input('service_id22'),
 
          ]);
-         
+
          return response()->json([
             'success' => true,
         ]);
-         
+
+    }
+
+
+    function UploadBulkLeads(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,csv',
+        ]);
+
+        Excel::import(new LeadsImport, request()->file('file'));
+
+        return redirect()->back()->with('success', 'Leads Imported Successfully!');
     }
 }

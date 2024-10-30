@@ -48,9 +48,7 @@
 
                 </div>
                 <div class="col-xl-5 wow fadeInRight " data-wow-delay="0.1s">
-                    <div class="bg-light rounded">
-                        <img src="img/service-8.jpg" class=" w-100" style="margin-bottom: -7px;" alt="Image">
-                    </div>
+                    @include('components.mini_inquiry_form')
                 </div>
             </div>
             <br><br><br>

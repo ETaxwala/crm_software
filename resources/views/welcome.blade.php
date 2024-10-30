@@ -1,4 +1,3 @@
-
 @extends('mainlayouts.app')
 
 @section('title', 'Home Page')
@@ -6,13 +5,16 @@
 @section('content')
 
     @include('components.carousel')
+
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-xl-5 wow fadeInLeft" data-wow-delay="0.1s">
                     <div class="bg-light rounded">
-                        <img src="public/img/service-8.jpg" class=" w-100" style="margin-bottom: -7px;" alt="Image">
+
+                        <img src="{{ url(env('LINK') . 'img/service-8.jpg') }}" class=" w-100" style="margin-bottom: -7px;"
+                            alt="Image">
                         {{-- <img src="img/about-3.jpg" class="img-fluid w-100 border-bottom border-5 border-primary"
                             style="border-top-right-radius: 300px; border-top-left-radius: 300px;" alt="Image"> --}}
                     </div>
@@ -78,7 +80,8 @@
                                 </div>
                                 <div class="d-flex flex-column justify-content-center">
                                     <span class="text-primary">Have any questions?</span>
-                                    <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px;">Free: +91 70710 70707</span>
+                                    <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px;">Free: +91 70710
+                                        70707</span>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +89,8 @@
                 </div>
                 <div class="col-xl-5 wow fadeInRight " data-wow-delay="0.1s">
                     <div class="bg-light rounded">
-                        <img src="img/service-8.jpg" class=" w-100" style="margin-bottom: -7px;" alt="Image">
+                        <img src="{{ url(env('LINK') . 'img/service-8.jpg') }}" class=" w-100" style="margin-bottom: -7px;"
+                            alt="Image">
                     </div>
                 </div>
             </div>
@@ -181,7 +185,8 @@
                         <div class="service-item">
                             <div class="service-inner">
                                 <div class="service-img">
-                                    <img src="{{ url(env('LINK') . 'core services/' . $service->image) }}" class="img-fluid w-100 rounded" alt="Image">
+                                    <img src="{{ url(env('LINK') . 'core services/' . $service->image) }}"
+                                        class="img-fluid w-100 rounded" alt="Image">
                                 </div>
                                 <div class="service-title">
                                     <div class="service-title-name">
@@ -306,16 +311,18 @@
                     <h5 class="sub-title text-primary px-3">OUR CLIENTS RIVIEWS</h5>
                 </div>
                 <h1 class="display-5 mb-4">What Our Clients Say</h1>
-                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque
-                    sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam
-                    necessitatibus saepe in ab? Repellat!</p>
+                <p class="mb-0">ETaxwala transformed our business operations with their expert financial guidance.
+                    From tax management to strategic planning, their team delivered beyond our expectations. Highly
+                    recommend for anyone seeking to streamline their business!
+                </p>
             </div>
             <div class="owl-carousel testimonial-carousel wow zoomInDown" data-wow-delay="0.2s">
                 <div class="testimonial-item">
                     <div class="testimonial-content p-4 mb-5">
-                        <p class="fs-5 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitati
-                            eiusmod tempor incididunt.
+                        <p class="fs-5 mb-0">ETaxwala's consultancy services helped us identify growth opportunities we
+                            never considered. Their expert advice has made a real difference in our bottom line. A must for
+                            businesses looking to grow!
+
                         </p>
                         <div class="d-flex justify-content-end">
                             <i class="fas fa-star text-secondary"></i>
@@ -326,9 +333,10 @@
                         </div>
                     </div>
 
-                    <div class="d-flex">
+                    {{-- <div class="d-flex">
                         <div class="rounded-circle me-4" style="width: 100px; height: 100px;">
-                            <img class="img-fluid rounded-circle" src="public/img/testimonial-3.jpg" alt="img">
+                            <img class="img-fluid rounded-circle" src="{{ url(env('LINK') . 'img/testimonial-3.jpg') }}"
+                                alt="img">
                         </div>
                         <div class="my-auto">
                             <h5>Santosh Asole
@@ -336,7 +344,37 @@
                             </h5>
                             <p class="mb-0">MD</p>
                         </div>
+                    </div> --}}
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content p-4 mb-5">
+                        <p class="fs-5 mb-0">We’ve been with ETaxwala for over a year, and the level of personalized
+                            service is exceptional. Their comprehensive approach helped us navigate complex financial
+                            decisions with ease. Highly recommended!
+
+
+                        </p>
+                        <div class="d-flex justify-content-end">
+                            <i class="fas fa-star text-secondary"></i>
+                            <i class="fas fa-star text-secondary"></i>
+                            <i class="fas fa-star text-secondary"></i>
+                            <i class="fas fa-star text-secondary"></i>
+                            <i class="fas fa-star text-secondary"></i>
+                        </div>
                     </div>
+
+                    {{-- <div class="d-flex">
+                        <div class="rounded-circle me-4" style="width: 100px; height: 100px;">
+                            <img class="img-fluid rounded-circle" src="{{ url(env('LINK') . 'img/testimonial-3.jpg') }}"
+                                alt="img">
+                        </div>
+                        <div class="my-auto">
+                            <h5>Santosh Asole
+
+                            </h5>
+                            <p class="mb-0">MD</p>
+                        </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -361,7 +399,8 @@
                 <div class="col-lg-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="training-item">
                         <div class="training-inner">
-                            <img src="public/img/training-1.jpg" class="img-fluid w-100 rounded" alt="Image">
+                            <img src="{{ url(env('LINK') . 'img/training-1.jpg') }}" class="img-fluid w-100 rounded"
+                                alt="Image">
                             <div class="training-title-name">
                                 <a href="#" class="h4 text-white mb-0">IELTS</a>
                                 <a href="#" class="h4 text-white mb-0">Coaching</a>
@@ -381,7 +420,8 @@
                 <div class="col-lg-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="training-item">
                         <div class="training-inner">
-                            <img src="public/img/training-2.jpg" class="img-fluid w-100 rounded" alt="Image">
+                            <img src="{{ url(env('LINK') . 'img/training-2.jpg') }}" class="img-fluid w-100 rounded"
+                                alt="Image">
                             <div class="training-title-name">
                                 <a href="#" class="h4 text-white mb-0">TOEFL</a>
                                 <a href="#" class="h4 text-white mb-0">Coaching</a>
@@ -401,7 +441,8 @@
                 <div class="col-lg-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="training-item">
                         <div class="training-inner">
-                            <img src="public/img/training-3.jpg" class="img-fluid w-100 rounded" alt="Image">
+                            <img src="{{ url(env('LINK') . 'img/training-3.jpg') }}" class="img-fluid w-100 rounded"
+                                alt="Image">
                             <div class="training-title-name">
                                 <a href="#" class="h4 text-white mb-0">PTE</a>
                                 <a href="#" class="h4 text-white mb-0">Coaching</a>
@@ -421,7 +462,8 @@
                 <div class="col-lg-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="training-item">
                         <div class="training-inner">
-                            <img src="public/img/training-4.jpg" class="img-fluid w-100 rounded" alt="Image">
+                            <img src="{{ url(env('LINK') . 'img/training-4.jpg') }}" class="img-fluid w-100 rounded"
+                                alt="Image">
                             <div class="training-title-name">
                                 <a href="#" class="h4 text-white mb-0">OET</a>
                                 <a href="#" class="h4 text-white mb-0">Coaching</a>
@@ -466,20 +508,23 @@
                     <div class="col-md-6 col-lg-6 col-xl-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="office-item p-4">
                             <div class="office-img mb-4">
-                                <img src="public/img/office-4.jpg" class="img-fluid w-100 rounded" alt="">
+                                <img src="{{ url(env('LINK') . 'img/office-4.jpg') }}" class="img-fluid w-100 rounded"
+                                    alt="">
                             </div>
                             <div class="office-content d-flex flex-column">
                                 <h4 class="mb-2">Ch. Sambhajinagar (Aurangabad)</h4>
                                 <a href="#" class="text-secondary fs-5 mb-2">+91 70710 70707</a>
                                 <a href="#" class="text-muted fs-5 mb-2">support@etaxwala.com</a>
-                                <p class="mb-0">301, Ashoka Residency, In Front Of Hotel Modi Grate, Beside Hotel Shidori Beed Bypass Road, Ch Sambhajinagar, Maharashtra 431001</p>
+                                <p class="mb-0">301, Ashoka Residency, In Front Of Hotel Modi Grate, Beside Hotel Shidori
+                                    Beed Bypass Road, Ch Sambhajinagar, Maharashtra 431001</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-6 wow fadeInUp" data-wow-delay="0.7s">
                         <div class="office-item p-4">
                             <div class="office-img mb-4">
-                                <img src="public/img/office-3.jpg" class="img-fluid w-100 rounded" alt="">
+                                <img src="{{ url(env('LINK') . 'img/office-3.jpg') }}" class="img-fluid w-100 rounded"
+                                    alt="">
                             </div>
                             <div class="office-content d-flex flex-column">
                                 <h4 class="mb-2">Ambad Office, Jalna</h4>
@@ -496,5 +541,6 @@
         </div>
     </div>
     <!-- Contact End -->
-
+    @include('components.modal')
 @endsection
+

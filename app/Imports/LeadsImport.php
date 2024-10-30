@@ -47,7 +47,7 @@ class LeadsImport implements ToModel, WithHeadingRow
             // $leads = DB::table('leads')->insertGetId($data);
             // // dd($leads);
 
-            // if ($leads) {
+            // if ($leads) { 
             //     // dd('success');
             //     return ['success' => true, 'msg' => "Leads Added"];
             // } else {

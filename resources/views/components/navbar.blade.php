@@ -39,6 +39,7 @@
         </div>
         <div class="col-lg-4 text-center text-lg-end">
             <div class="d-inline-flex align-items-center" style="height: 45px;">
+                {{-- <a onclick="showsearchModal()" class="text-muted mx-2"> Inquiry Now</a><small> / </small> --}}
                 <a href="#" class="text-muted mx-2"> Support</a><small> / </small>
                 <a href="{{ route('user-login') }}" target="_blank" class="text-muted mx-2">Staff Login </a> <small> / </small>
               <a href="{{ route('customer.login') }}" target="_blank" class="text-muted ms-2">User Login</a>
@@ -52,7 +53,7 @@
 <div class="container-fluid nav-bar p-0">
     <nav class=" navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
         <a href="" class="navbar-brand p-0">
-            <img src="public/img/logo_black.png" alt="Logo" width="200">
+            <img src="{{ url(env('LINK') . 'img/logo_black.png')}}" alt="Logo" width="200">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
@@ -70,45 +71,45 @@
                                 <div class="col-md-5">
                                     <strong class="dropdown-item-heading">Business Registrations</strong>
                                     <a href="{{ route('Partnership Firm Registration') }}"
-                                        class="dropdown-item {{ Request::is('Partnership_Firm_Registration') ? 'active' : '' }}">Partnership
+                                        class="dropdown-item {{ Request::is('Partnership-Firm-Registration') ? 'active' : '' }}">Partnership
                                         Firm Registration</a>
                                     <a href="{{ route('One Person Company') }}"
-                                        class="dropdown-item {{ Request::is('One_Person_Company') ? 'active' : '' }}">One
+                                        class="dropdown-item {{ Request::is('One-Person-Company') ? 'active' : '' }}">One
                                         Person Company</a>
                                     <a href="{{ route('Private LTD Company') }}"
-                                        class="dropdown-item {{ Request::is('Private_LTD_Company') ? 'active' : '' }}">Private
+                                        class="dropdown-item {{ Request::is('Private-LTD-Company') ? 'active' : '' }}">Private
                                         LTD Company </a>
                                     <a href="{{ route('Limited Liability Partnership (LLP)') }}"
-                                        class="dropdown-item {{ Request::is('Limited_Liability_Partnership_LLP') ? 'active' : '' }}">Limited
+                                        class="dropdown-item {{ Request::is('Limited-Liability-Partnership-LLP') ? 'active' : '' }}">Limited
                                         Liability Partnership (LLP)</a>
                                     <a href="{{ route('Section 8 Company NGO') }}"
-                                        class="dropdown-item {{ Request::is('Section_8_Company_NGO') ? 'active' : '' }}">Section
+                                        class="dropdown-item {{ Request::is('Section-8-Company-NGO') ? 'active' : '' }}">Section
                                         8 Company NGO</a>
                                     <a href="{{ route('Producer Company') }}"
-                                        class="dropdown-item {{ Request::is('Producer_Company') ? 'active' : '' }}">Producer
+                                        class="dropdown-item {{ Request::is('Producer-Company') ? 'active' : '' }}">Producer
                                         Company </a>
                                     <a href="{{ route('Public LTD Company') }}"
-                                        class="dropdown-item {{ Request::is('Public_LTD_Company') ? 'active' : '' }}">Public
+                                        class="dropdown-item {{ Request::is('Public-LTD-Company') ? 'active' : '' }}">Public
                                         LTD Company </a>
-                                    <a href="{{ route('Indian Subsidiary Company') }}" class="dropdown-item {{ Request::is('Indian_Subsidiary_Company') ? 'active' : '' }}">Indian
+                                    <a href="{{ route('Indian Subsidiary Company') }}" class="dropdown-item {{ Request::is('Indian-Subsidiary-Company') ? 'active' : '' }}">Indian
                                         Subsidiary Company </a>
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-5">
                                     <strong class="dropdown-item-heading">Others Registrations</strong>
-                                    <a href="{{route('Shop Act Registration')}}" class="dropdown-item  {{ Request::is('shop_act_registration') ? 'active' : '' }} ">Shop Act Registration</a>
-                                    <a href="{{route('MSME Registration')}}" class="dropdown-item  {{ Request::is('msme_registration') ? 'active' : '' }} ">MSME Registration</a>
-                                    <a href="{{route('GST Registration')}}" class="dropdown-item  {{ Request::is('gst_registration') ? 'active' : '' }} ">GST Registration</a>
-                                    <a href="{{route('FSSAI Registration')}}" class="dropdown-item  {{ Request::is('fssai_registration') ? 'active' : '' }} ">FSSAI Registration</a>
-                                    <a href="{{route('Import Export Code')}}" class="dropdown-item  {{ Request::is('import_export_code') ? 'active' : '' }} ">Import Export Code</a>
-                                    <a href="{{route('EPFO ESIC Registration')}}" class="dropdown-item  {{ Request::is('epfo_esic_registration') ? 'active' : '' }} ">EPFO ESIC Registration</a>
-                                    <a href="{{route('80G 12A Registration')}}" class="dropdown-item  {{ Request::is('80G_12A_registration') ? 'active' : '' }} ">80G 12A Registration</a>
-                                    <a href="{{route('Professional Tax Registration')}}" class="dropdown-item  {{ Request::is('professional_tax_registration') ? 'active' : '' }}">Professional Tax Registration</a>
-                                    <a href="{{route('TAN Registration')}}" class="dropdown-item  {{ Request::is('tan_registration') ? 'active' : '' }}">TAN Registration</a>
+                                    <a href="{{route('Shop Act Registration')}}" class="dropdown-item  {{ Request::is('shop-act-registration') ? 'active' : '' }} ">Shop Act Registration</a>
+                                    <a href="{{route('MSME Registration')}}" class="dropdown-item  {{ Request::is('msme-registration') ? 'active' : '' }} ">MSME Registration</a>
+                                    <a href="{{route('GST Registration')}}" class="dropdown-item  {{ Request::is('gst-registration') ? 'active' : '' }} ">GST Registration</a>
+                                    <a href="{{route('FSSAI Registration')}}" class="dropdown-item  {{ Request::is('fssai-registration') ? 'active' : '' }} ">FSSAI Registration</a>
+                                    <a href="{{route('Import Export Code')}}" class="dropdown-item  {{ Request::is('import-export-code') ? 'active' : '' }} ">Import Export Code</a>
+                                    <a href="{{route('EPFO ESIC Registration')}}" class="dropdown-item  {{ Request::is('epfo-esic-registration') ? 'active' : '' }} ">EPFO ESIC Registration</a>
+                                    <a href="{{route('80G 12A Registration')}}" class="dropdown-item  {{ Request::is('80G-12A-registration') ? 'active' : '' }} ">80G 12A Registration</a>
+                                    <a href="{{route('Professional Tax Registration')}}" class="dropdown-item  {{ Request::is('professional-tax-registration') ? 'active' : '' }}">Professional Tax Registration</a>
+                                    <a href="{{route('TAN Registration')}}" class="dropdown-item  {{ Request::is('tan-registration') ? 'active' : '' }}">TAN Registration</a>
                                     <a href="{{route('Digital Signature')}}" class="dropdown-item  {{ Request::is('DSC') ? 'active' : '' }}">Digital Signature (DSC)</a>
-                                    <a href="{{route('PASARA License')}}" class="dropdown-item  {{ Request::is('PASARA_license') ? 'active' : '' }}">PASARA License</a>
-                                    <a href="{{route('Niti Ayog Darpan')}}" class="dropdown-item  {{ Request::is('niti_ayog_darpan') ? 'active' : '' }}">Niti Ayog Darpan</a>
-                                    <a href="{{route('Trade License')}}" class="dropdown-item  {{ Request::is('trade_license') ? 'active' : '' }}">Trade License</a>
+                                    <a href="{{route('PASARA License')}}" class="dropdown-item  {{ Request::is('PASARA-license') ? 'active' : '' }}">PASARA License</a>
+                                    <a href="{{route('Niti Ayog Darpan')}}" class="dropdown-item  {{ Request::is('niti-ayog-darpan') ? 'active' : '' }}">Niti Ayog Darpan</a>
+                                    <a href="{{route('Trade License')}}" class="dropdown-item  {{ Request::is('trade-license') ? 'active' : '' }}">Trade License</a>
                                 </div>
                             </div>
                         </div>

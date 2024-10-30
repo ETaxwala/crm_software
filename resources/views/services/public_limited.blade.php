@@ -58,7 +58,7 @@
             <br><br><br>
             <div class="row g-5">
 
-                <div class="col-xl-12 wow fadeInLeft" data-wow-delay="0.3s">
+                <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.3s">
 
 
                     <h5 class=" pe-3">Minimum Requirements:</h5>
@@ -73,6 +73,9 @@
                     </ul>
                     </p>
 
+                </div>
+                <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.3s">
+                    @include('components.mini_inquiry_form')
                 </div>
             </div>
             <br><br><br>

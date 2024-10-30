@@ -11,7 +11,7 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row g-5">
-                <div class="col-xl-12 wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.1s">
                     <h5 class="sub-title pe-3">MSME Registration</h5>
                     <p class="mb-4">MSME Registration is highly advantageous for Micro, Small, and Medium-sized
                         enterprises, providing various benefits like tax exemptions and capital investment opportunities.
@@ -36,7 +36,9 @@
                     </p>
 
                 </div>
-
+                <div class="col-xl-5 wow fadeInLeft" data-wow-delay="0.1s">
+                    @include('components.mini_inquiry_form')
+                </div>
             </div>
             <br><br><br>
             <div class="row g-5">
@@ -47,15 +49,20 @@
                     <h5 class=" pe-3">Key Advantages of MSME Registration</h5>
                     <p class="mb-4">
                     <ul>
-                        <li><strong>Tax Subsidies:</strong> Government provides various income and capital gain tax subsidies to registered
-                        MSMEs.</li>
-                        <li><strong>Lower Interest Rates:</strong> Banks offer reduced interest rates on loans, typically 1-1.5%, to MSMEs.</li>
-                        <li><strong>Quicker Approvals:</strong> MSMEs enjoy expedited approvals for licenses and certifications from the
-                        Government.</li>
-                        <li><strong>Special Tenders:</strong> Exclusive Government tenders are accessible to MSMEs, encouraging smaller
-                        businesses.</li>
-                        <li><strong>Cost-Effective Facilities:</strong> MSME-registered businesses benefit from cheaper electricity,
-                        infrastructure, and more.</li>
+                        <li><strong>Tax Subsidies:</strong> Government provides various income and capital gain tax
+                            subsidies to registered
+                            MSMEs.</li>
+                        <li><strong>Lower Interest Rates:</strong> Banks offer reduced interest rates on loans, typically
+                            1-1.5%, to MSMEs.</li>
+                        <li><strong>Quicker Approvals:</strong> MSMEs enjoy expedited approvals for licenses and
+                            certifications from the
+                            Government.</li>
+                        <li><strong>Special Tenders:</strong> Exclusive Government tenders are accessible to MSMEs,
+                            encouraging smaller
+                            businesses.</li>
+                        <li><strong>Cost-Effective Facilities:</strong> MSME-registered businesses benefit from cheaper
+                            electricity,
+                            infrastructure, and more.</li>
                     </ul>
                     </p>
 
@@ -69,25 +76,32 @@
             <br><br><br>
             <div class="row g-5">
                 <div class="col-xl-12 wow fadeInLeft" data-wow-delay="0.1s">
-                    <h5 class=" pe-3">Detailed Documents Needed for Partnership Firm Registration:</h5>
+                    <h5 class=" pe-3">Documents Required for MSME Registration</h5>
                     <p class="mb-4">
                     <ul>
                         <li>
-                            <strong>Partnership Deed:</strong> An agreement defining rights and duties of partners.
+                            Copy of MoA and AoA/Partnership Deed/Trust Deed (as applicable).
                         </li>
                         <li>
-                            <strong>Partners' Documents:</strong> PAN Cards and Address Proofs of partners.
+                            Licenses/clearances from Electricity Board, Municipal Corporation.
                         </li>
                         <li>
-                            <strong>Firm's PAN Card:</strong> Essential for tax purposes.
+                            Purchase or sales bills.
                         </li>
                         <li>
-                            <strong>Firm's Address Proof:</strong> Utility bills or property documents.
+                            Bills of machinery.
                         </li>
                         <li>
-                            <strong>Additional Documents:</strong> GST Registration, Bank Account details, and Partnership
-                            Registration
-                            Certificate if applicable.
+                            Business Address Proof.
+                            <br>
+                            <br>
+                            <ul>
+                                <strong>Business Address Proof Requirements:</strong>
+                                <li>Telephone/Mobile/Electricity/Gas bill (Less than 2 months old).</li>
+                                <li>For rented premises: Notarized Rent Agreement with a No-Objection Certificate (NOC).
+                                </li>
+                                <li>For self-owned premises: Registered title document.</li>
+                            </ul>
                         </li>
 
                     </ul>
@@ -99,26 +113,19 @@
             <br><br><br>
             <div class="row g-5">
                 <div class="col-xl-12 wow fadeInLeft" data-wow-delay="0.1s">
-                    <h5 class=" pe-3">Registration Process:</h5>
+                    <h5 class=" pe-3">MSME Registration Process</h5>
                     <p class="mb-4">
                         <b>ETaxwala simplifies registration procedures for businesses in India:</b>
                     <ul>
-                        <li>
-                            <strong>Partnership Form and Document Verification:</strong> ETaxwala assists in filling forms
-                            and verifies required documents.
-                        </li>
-                        <li>
-                            <strong>Drafting Partnership Deed:</strong> Creation of the legal partnership agreement.
-                        </li>
-                        <li>
-                            <strong>PAN, TAN Application:</strong> Application for PAN and TAN.
-                        </li>
-                        <li>
-                            <strong>Current Bank Account:</strong> Assistance in opening a current bank account.
-                        </li>
-                        <li>
-                            <strong>Completion:</strong> Access and download Partnership Deed and relevant documents.
-                        </li>
+                        <li> <strong>Document Preparation:</strong> ETaxwala prepares your MSME Registration application and
+                            collects required
+                            documents based on your details.</li>
+                        <li> <strong>Application Submission:</strong> Submission of your MSME Registration application along
+                            with necessary
+                            documents by ETaxwala.</li>
+                        <li> <strong>Certificate Receipt:</strong> ETaxwala receives the MSME certificate upon approval of
+                            your application.</li>
+                        <li> <strong>Congratulations! Your Work Is Done.</strong></li>
 
                     </ul>
                     </p>
@@ -133,33 +140,35 @@
                     <p class="mb-4">
                     <ul>
 
-                        <strong>Q. Who can form a partnership firm?</strong>
+                        <strong>Q. Is MSME registration mandatory?</strong>
                         <br>
-                        <p>Ans: ETaxwala assists in filling forms and verifies required documents.</p>
+                        <p>Ans: MSME registration is not mandated by statute; however, it proves beneficial for enterprises
+                            to avail government benefits.</p>
 
-                        <strong>Q. Is a partnership firm a separate legal entity?</strong>
+                        <strong>Q. Do I need to apply for MSME registration before commencing business operations?</strong>
                         <br>
-                        <p>Ans: No, it doesn't have a separate legal identity.</p>
+                        <p>Ans: It is recommended to obtain a Provisional Registration Certification (PRC) before commencing
+                            actual business operations. This aids in acquiring loans, purchasing assets, etc.</p>
 
-                        <strong>Q. Is registration mandatory?</strong>
+                        <strong>Q. 3. How long is the PRC valid for?</strong>
                         <br>
-                        <p>Ans: No, but recommended for legal advantages.</p>
+                        <p>Ans: The PRC is valid for 5 years. It can be reapplied if business operations haven't commenced,
+                            and a permanent license can be obtained once the actual operations begin.</p>
 
-                        <strong>Q. How many partners are required?</strong>
+                        <strong>Q. What are the benefits of MSME registration?</strong>
                         <br>
-                        <p>Ans: Minimum of 2, maximum of 10 (banking) or 20 (other businesses).</p>
+                        <p>Ans: MSME registration offers benefits, including excise duty exemptions, power tariff subsidies,
+                            lower interest rates, tax subsidies, and capital investment subsidies.</p>
 
-                        <strong>Q. Is there a minimum capital requirement?</strong>
+                        <strong>Q. Is it essential for an MSM Enterprise to maintain any records?</strong>
                         <br>
-                        <p>Ans: No, except for maintaining a bank account balance.</p>
+                        <p>Ans: Yes, MSMEs must adhere to government regulations. Failure to do so may result in
+                            deregistration by the Government.</p>
 
-                        <strong>Q. Is audit mandatory?</strong>
+                        <strong>Q. Are there any fees for registration under the MSMED Act?</strong>
                         <br>
-                        <p>Ans: No statutory requirement, but tax audit if turnover exceeds limits</p>
+                        <p>Ans: No, there are no registration fees required for this purpose.</p>
 
-                        <strong>Q. Can ownership interest be transferred?</strong>
-                        <br>
-                        <p>Ans: Restricted transfer among existing partners with unanimous consent</p>
 
                     </ul>
                     </p>

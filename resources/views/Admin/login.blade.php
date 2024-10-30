@@ -22,7 +22,7 @@
 
 </head>
 <style>
-    #background-video { 
+    #background-video {
         position: fixed;
         right: 0;
         bottom: 0;
